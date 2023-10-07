@@ -9,10 +9,11 @@ pub struct IkeExchangeType(pub u8);
 
 newtype_enum! {
 impl debug IkeExchangeType {
-    IKE_SA_INIT     = 34,
-    IKE_AUTH        = 35,
-    CREATE_CHILD_SA = 36,
-    INFORMATIONAL   = 37,
+    IKE_SA_INIT      = 34,
+    IKE_AUTH         = 35,
+    CREATE_CHILD_SA  = 36,
+    INFORMATIONAL    = 37,
+    IKE_INTERMEDIATE = 43,
 }
 }
 

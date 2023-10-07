@@ -32,6 +32,8 @@ use rusticata_macros::newtype_enum;
 /// - [RFC5685](https://tools.ietf.org/html/rfc5685) Redirect Mechanism for the Internet Key Exchange Protocol Version 2 (IKEv2)
 /// - [RFC5723](https://tools.ietf.org/html/rfc5723) Internet Key Exchange Protocol Version 2 (IKEv2) Session Resumption
 /// - [RFC7427](https://tools.ietf.org/html/rfc7427) Signature Authentication in the Internet Key Exchange Version 2 (IKEv2)
+/// - [RFC9242](https://tools.ietf.org/html/rfc9242) Intermediate Exchange in the Internet Keu Exchange Protocol Version 2 (IKEv2)
+/// - [RFC9370](https://tools.ietf.org/html/rfc9370) Multiple Key Exchanges in the Internet Key Exchange Protocol Version 2 (IKEv2)
 ///
 /// See also [IKEV2IANA](https://www.iana.org/assignments/ikev2-parameters/ikev2-parameters.xhtml) for the latest values.
 #[derive(Clone, Copy, PartialEq, Eq)]
@@ -40,43 +42,47 @@ pub struct NotifyType(pub u16);
 newtype_enum! {
 impl debug NotifyType {
     // error types
-    UNSUPPORTED_CRITICAL_PAYLOAD  = 1,
-    INVALID_IKE_SPI               = 4,
-    INVALID_MAJOR_VERSION         = 5,
-    INVALID_SYNTAX                = 7,
-    INVALID_MESSAGE_ID            = 9,
-    INVALID_SPI                   = 11,
-    NO_PROPOSAL_CHOSEN            = 14,
-    INVALID_KE_PAYLOAD            = 17,
-    AUTHENTICATION_FAILED         = 24,
-    SINGLE_PAIR_REQUIRED          = 34,
-    NO_ADDITIONAL_SAS             = 35,
-    INTERNAL_ADDRESS_FAILURE      = 36,
-    FAILED_CP_REQUIRED            = 37,
-    TS_UNACCEPTABLE               = 38,
-    INVALID_SELECTORS             = 39,
-    TEMPORARY_FAILURE             = 43,
-    CHILD_SA_NOT_FOUND            = 44,
+    UNSUPPORTED_CRITICAL_PAYLOAD    = 1,
+    INVALID_IKE_SPI                 = 4,
+    INVALID_MAJOR_VERSION           = 5,
+    INVALID_SYNTAX                  = 7,
+    INVALID_MESSAGE_ID              = 9,
+    INVALID_SPI                     = 11,
+    NO_PROPOSAL_CHOSEN              = 14,
+    INVALID_KE_PAYLOAD              = 17,
+    AUTHENTICATION_FAILED           = 24,
+    SINGLE_PAIR_REQUIRED            = 34,
+    NO_ADDITIONAL_SAS               = 35,
+    INTERNAL_ADDRESS_FAILURE        = 36,
+    FAILED_CP_REQUIRED              = 37,
+    TS_UNACCEPTABLE                 = 38,
+    INVALID_SELECTORS               = 39,
+    TEMPORARY_FAILURE               = 43,
+    CHILD_SA_NOT_FOUND              = 44,
+    STATE_NOT_FOUND                 = 47,
     // status types
-    INITIAL_CONTACT               = 16384,
-    SET_WINDOW_SIZE               = 16385,
-    ADDITIONAL_TS_POSSIBLE        = 16386,
-    IPCOMP_SUPPORTED              = 16387,
-    NAT_DETECTION_SOURCE_IP       = 16388,
-    NAT_DETECTION_DESTINATION_IP  = 16389,
-    COOKIE                        = 16390,
-    USE_TRANSPORT_MODE            = 16391,
-    HTTP_CERT_LOOKUP_SUPPORTED    = 16392,
-    REKEY_SA                      = 16393,
-    ESP_TFC_PADDING_NOT_SUPPORTED = 16394,
-    NON_FIRST_FRAGMENTS_ALSO      = 16395,
+    INITIAL_CONTACT                 = 16384,
+    SET_WINDOW_SIZE                 = 16385,
+    ADDITIONAL_TS_POSSIBLE          = 16386,
+    IPCOMP_SUPPORTED                = 16387,
+    NAT_DETECTION_SOURCE_IP         = 16388,
+    NAT_DETECTION_DESTINATION_IP    = 16389,
+    COOKIE                          = 16390,
+    USE_TRANSPORT_MODE              = 16391,
+    HTTP_CERT_LOOKUP_SUPPORTED      = 16392,
+    REKEY_SA                        = 16393,
+    ESP_TFC_PADDING_NOT_SUPPORTED   = 16394,
+    NON_FIRST_FRAGMENTS_ALSO        = 16395,
     //
-    MULTIPLE_AUTH_SUPPORTED       = 16404,
-    ANOTHER_AUTH_FOLLOWS          = 16405,
-    REDIRECT_SUPPORTED            = 16406,
+    MULTIPLE_AUTH_SUPPORTED         = 16404,
+    ANOTHER_AUTH_FOLLOWS            = 16405,
+    REDIRECT_SUPPORTED              = 16406,
     //
-    IKEV2_FRAGMENTATION_SUPPORTED = 16430,
-    SIGNATURE_HASH_ALGORITHMS     = 16431,
+    IKEV2_FRAGMENTATION_SUPPORTED   = 16430,
+    SIGNATURE_HASH_ALGORITHMS       = 16431,
+    //
+    INTERMEDIATE_EXCHANGE_SUPPORTED = 16438,
+    ADDITIONAL_KEY_EXCHANGE         = 16441,
 }
 }
 

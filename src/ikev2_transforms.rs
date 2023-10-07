@@ -3,7 +3,9 @@ use std::convert::From;
 
 /// Transform (cryptographic algorithm) type
 ///
-/// Defined in [RFC7296](https://tools.ietf.org/html/rfc7296) section 3.3.2
+/// Defined in:
+/// - [RFC7296](https://tools.ietf.org/html/rfc7296) section 3.3.2
+/// - [RFC9370](https://tools.ietf.org/html/rfc9370) section 2gi.2.1
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub struct IkeTransformType(pub u8);
 
@@ -14,6 +16,13 @@ impl debug IkeTransformType {
     IntegrityAlgorithm      = 3,
     DiffieHellmanGroup      = 4,
     ExtendedSequenceNumbers = 5,
+    AdditionalKeyExchange1  = 6,
+    AdditionalKeyExchange2  = 7,
+    AdditionalKeyExchange3  = 8,
+    AdditionalKeyExchange4  = 9,
+    AdditionalKeyExchange5  = 10,
+    AdditionalKeyExchange6  = 11,
+    AdditionalKeyExchange7  = 12,
 }
 }
 
